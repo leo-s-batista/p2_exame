@@ -1,0 +1,18 @@
+.inscricao {
+    @apply p-10;
+
+    .row {
+        @apply pb-4;
+    }
+    &--success,
+    &--error {
+        @apply text-xl font-light pb-6;
+    }
+
+    input[type="radio"] {
+        @apply ml-2 mr-1;
+    }
+    .form-check {
+        @apply pl-0;
+    }
+}
