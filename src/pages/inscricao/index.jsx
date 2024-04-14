@@ -146,8 +146,12 @@ export function Inscricao() {
           <Row>
             <Form.Group as={Col} md="6">
               <Form.Label>Ctps n°</Form.Label>
-              <Form.Control type="text" required value={formValues.ctpsNumero}
-                onChange={(e) => setFormValues({ ...formValues, ctpsNumero: e.target.value })} />
+
+              <InputMask value={formValues.ctpsNumero}
+                onChange={(e) => setFormValues({ ...formValues, ctpsNumero: e.target.value })} mask="9999999/999-9" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{7}/[0-9]{3}-[0-9]" type="text" required />}
+              </InputMask>
+
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
@@ -247,7 +251,7 @@ export function Inscricao() {
             </Form.Group>
             <Form.Group as={Col} md="2" >
               <Form.Label>UF</Form.Label>
-              <Form.Control type="text" required value={formValues.uf}
+              <Form.Control pattern="[A-Za-z]{2}" maxLength={2} type="text" required value={formValues.uf}
                 onChange={(e) => setFormValues({ ...formValues, uf: e.target.value })} />
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
@@ -258,8 +262,10 @@ export function Inscricao() {
           <Row>
             <Form.Group as={Col} md="6">
               <Form.Label>Cep</Form.Label>
-              <Form.Control type="text" required value={formValues.cep}
-                onChange={(e) => setFormValues({ ...formValues, cep: e.target.value })} />
+              <InputMask value={formValues.cep}
+                onChange={(e) => setFormValues({ ...formValues, cep: e.target.value })} mask="99999-999" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{5}-[0-9]{3}" type="text" required />}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
@@ -279,7 +285,7 @@ export function Inscricao() {
               <Form.Label>Telefone</Form.Label>
               <InputMask value={formValues.telefone}
                 onChange={(e) => setFormValues({ ...formValues, telefone: e.target.value })} mask="+99 (99) 99999-9999" maskChar={null}>
-                {(inputProps) => <Form.Control {...inputProps} type="text" required />}
+                {(inputProps) => <Form.Control pattern="^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$" {...inputProps} type="text" required />}
               </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
@@ -289,7 +295,7 @@ export function Inscricao() {
               <Form.Label>Celular</Form.Label>
               <InputMask value={formValues.celular}
                 onChange={(e) => setFormValues({ ...formValues, celular: e.target.value })} mask="+99 (99) 99999-9999" maskChar={null}>
-                {(inputProps) => <Form.Control {...inputProps} type="text" required />}
+                {(inputProps) => <Form.Control pattern="^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$" {...inputProps} type="text" required />}
               </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
@@ -361,8 +367,10 @@ export function Inscricao() {
           <Row>
             <Form.Group as={Col} md="6">
               <Form.Label>Título de Eleitor N°</Form.Label>
-              <Form.Control type="text" required value={formValues.tituloEleitorNumero}
-                onChange={(e) => setFormValues({ ...formValues, tituloEleitorNumero: e.target.value })} />
+              <InputMask value={formValues.tituloEleitorNumero}
+                onChange={(e) => setFormValues({ ...formValues, tituloEleitorNumero: e.target.value })} mask="9999 9999 9999" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{4} [0-9]{4} [0-9]{4}" type="text" required />}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
@@ -380,16 +388,22 @@ export function Inscricao() {
           <Row>
             <Form.Group as={Col} md="6">
               <Form.Label>N° Pis</Form.Label>
-              <Form.Control type="text" required value={formValues.numeroPis}
-                onChange={(e) => setFormValues({ ...formValues, numeroPis: e.target.value })} />
+
+              <InputMask value={formValues.numeroPis}
+                onChange={(e) => setFormValues({ ...formValues, numeroPis: e.target.value })} mask="999.99999.99-9" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{3}\.[0-9]{5}\.[0-9]{2}-[0-9]" type="text" required />}
+              </InputMask>
+
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="6" >
               <Form.Label>Cart. de Habilitação N°</Form.Label>
-              <Form.Control type="text" required value={formValues.cartHabilitacaoNumero}
-                onChange={(e) => setFormValues({ ...formValues, cartHabilitacaoNumero: e.target.value })} />
+              <InputMask value={formValues.cartHabilitacaoNumero}
+                onChange={(e) => setFormValues({ ...formValues, cartHabilitacaoNumero: e.target.value })} mask="99999999999" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{11}" type="text" required />}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
@@ -492,8 +506,10 @@ export function Inscricao() {
           <Row>
             <Form.Group as={Col} md="4">
               <Form.Label>Certidão Militar N°</Form.Label>
-              <Form.Control type="text" required value={formValues.certidaoMilitarNumero}
-                onChange={(e) => setFormValues({ ...formValues, certidaoMilitarNumero: e.target.value })} />
+              <InputMask value={formValues.certidaoMilitarNumero}
+                onChange={(e) => setFormValues({ ...formValues, certidaoMilitarNumero: e.target.value })} mask="99999999/9999" maskChar={null}>
+                {(inputProps) => <Form.Control {...inputProps} pattern="[0-9]{8}/[0-9]{4}" type="text" required />}
+              </InputMask>
               <Form.Control.Feedback type="invalid">
                 Campo obrigatório
               </Form.Control.Feedback>
