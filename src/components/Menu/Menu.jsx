@@ -18,7 +18,7 @@ export function Menu() {
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav>
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/inscricao" className="nav-link">Inscrição</Link>
+              <Link to="/newsletter" className="nav-link">Newsletter</Link>
               <Link to="/cancelamento" className="nav-link">Cancelamento</Link>
             </Nav>
           </Navbar.Collapse>

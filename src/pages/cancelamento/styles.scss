@@ -4,4 +4,8 @@
     .cancelamento--result {
         @apply pt-6;
     }
+    .cancelamento--input {
+        @apply grid gap-x-2;
+        grid-template-columns: 1fr auto;
+    }
 }

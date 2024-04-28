@@ -1,0 +1,46 @@
+.newsletter {
+    @apply p-10;
+
+    form {
+        @apply grid gap-y-2;
+    }
+
+    &--header {
+            @apply mb-8 p-6 rounded-2xl bg-gray-100 grid gap-y-2;
+            &__title {
+                @apply text-2xl font-bold;
+            }
+            &__subtitle {
+                @apply text-blue-600 font-semibold;
+            }
+    }
+    &--address {
+        @apply pt-6 pb-2 font-bold;
+    }
+
+    &--success,
+    &--error {
+        @apply text-xl font-light pb-6;
+    }
+
+    .mandatory {
+        @apply font-bold text-red-600;
+    }
+
+    .checksRow {
+        @apply mt-6 py-8 px-4 rounded-2xl bg-gray-100 grid gap-y-6;
+        a {
+            @apply text-blue-600;
+        }
+    }
+
+    input[type="radio"] {
+        @apply ml-2 mr-1;
+    }
+    .form-check  {
+        @apply pl-0;
+        .form-check-input {
+            @apply pl-0 ml-0 mr-2 float-none;
+        }
+    }
+}

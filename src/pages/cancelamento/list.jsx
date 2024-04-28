@@ -2,15 +2,16 @@ import { Button, Table } from 'react-bootstrap';
 import { api } from '../../axios.js'
 
 
-export function ListCancelamento({ inscricoes, setCpf, setValidated, setInscricoes }) {
+export function ListCancelamento({ newsletters, setEmail, setValidated, setNewsletters }) {
 
   const handleDelete = (id) => {
-    api.delete(`/inscricao/${id}`).then(() => {
-      let result = inscricoes.filter((inscricao) => inscricao.id !== id)
-      setInscricoes(result)
+    api.delete(`/newsletter/${id}`).then(() => {
+      alert('Assinatura cancelada com sucesso!')
+      let result = newsletters.filter((newsletter) => newsletter.id !== id)
+      setNewsletters(result)
 
       if (result.length === 0) {
-      setCpf('');
+      setEmail('');
       setValidated(false);
       }
 
@@ -24,17 +25,17 @@ export function ListCancelamento({ inscricoes, setCpf, setValidated, setInscrico
         <thead>
           <tr>
             <th>#</th>
-            <th>Função Pretendida</th>
+            <th>E-mail</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {inscricoes.map((inscricao) => (
-            <tr key={inscricao.id}>
-              <td>{inscricao.id}</td>
-              <td>{inscricao.funcaoPretendida}</td>
+          {newsletters.map((newsletter) => (
+            <tr key={newsletter.id}>
+              <td>{newsletter.id}</td>
+              <td>{newsletter.email}</td>
               <td>
-                <Button onClick={() => handleDelete(inscricao.id)} variant="danger">Cancelar</Button>
+                <Button onClick={() => handleDelete(newsletter.id)} variant="danger">Cancelar</Button>
               </td>
             </tr>
           ))}

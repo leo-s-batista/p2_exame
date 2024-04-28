@@ -9,26 +9,26 @@ export function Home() {
   return (
     <div className="home">
       <Card className="home--card">
-        <Card.Header>Inscrição</Card.Header>
+        <Card.Header>Newsletter</Card.Header>
         <Card.Body>
-          <Card.Title>Recrutamento Online</Card.Title>
+          <Card.Title>Assinar Newsletter</Card.Title>
           <Card.Text>
-            Preencha agora mesmo um formulário para se inscrever em nosso processo seletivo.
+            Quer receber as dicas de carreiras, vagas de emprego e ficar por dentro das tendências do mercado de trabalho ?
           </Card.Text>
           <Button variant="success">
-            <Link to="/inscricao">Realizar Inscrição</Link>
+            <Link to="/newsletter">Assinar</Link>
           </Button>
         </Card.Body>
       </Card>
       <Card className="home--card">
         <Card.Header>Cancelamento</Card.Header>
         <Card.Body>
-          <Card.Title>Cancele sua Solicitação</Card.Title>
+          <Card.Title>Cancelar a Newsletter</Card.Title>
           <Card.Text>
-            Use seu CPF para cancelar uma inscrição.
+            Use seu e-mail para cancelar a assinatura da newsletter.
           </Card.Text>
           <Button variant="success">
-            <Link to="/cancelamento">Cancelamento</Link>
+            <Link to="/cancelamento">Cancelar</Link>
           </Button>
         </Card.Body>
       </Card>

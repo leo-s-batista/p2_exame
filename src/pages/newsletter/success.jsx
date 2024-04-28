@@ -4,10 +4,10 @@ import './styles.scss';
 
 export function SuccessView({ handleReset }) {
     return (
-        <div className="inscricao">
-            <div className="inscricao--success">Formulário enviado com sucesso</div>
+        <div className="newsletter">
+            <div className="newsletter--success">Formulário enviado com sucesso</div>
             <Button onClick={handleReset} variant="success">
-                Realizar outra Inscrição
+                Realizar outra Assinatura
             </Button>
         </div>
     );
