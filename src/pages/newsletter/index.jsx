@@ -132,6 +132,7 @@ export function Newsletter() {
           <Form.Group as={Col} md="6">
             <Form.Label>Estado</Form.Label>
             <Form.Control
+              pattern="[A-Za-z]{2}" maxLength={2}
               required
               type="text"
               value={formValues.estado}

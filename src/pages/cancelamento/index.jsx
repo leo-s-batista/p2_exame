@@ -12,36 +12,44 @@ export function Cancelamento() {
 
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState('');
+  const [sent, setSent] = useState('');
   const [newsletters, setNewsletters] = useState([]);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     if (validated) {
       setValidated(false);
+      setSent(false)
     }
   }
 
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
+    let form = event.currentTarget;
     event.preventDefault();
+    
+    if(form.localName === 'button') {
+      form = document.querySelector('form');
+    }
+    
+    setValidated(true);
 
     if (form.checkValidity() && email) {
       api.get(`/newsletter/${email}`).then((response) => {
+        setSent(true);
         setNewsletters(response.data);
       }).catch((error) => {
         console.log(error);
       });
 
 
-      setValidated(true);
     }
   }
 
   let result = ''
 
-  if (validated) {
+  if (sent) {
     if (newsletters.length > 0) {
-      result = <ListCancelamento newsletters={newsletters} setEmail={setEmail} setValidated={setValidated} setNewsletters={setNewsletters} />
+      result = <ListCancelamento newsletters={newsletters} setEmail={setEmail} setSent={setSent} setValidated={setValidated} setNewsletters={setNewsletters} />
     } else {
       result = <p>Nenhuma assinatura encontrada</p>
     }
@@ -55,15 +63,16 @@ export function Cancelamento() {
             <Form.Label>Informe seu E-mail</Form.Label>
             <Row className="cancelamento--input">
               <Form.Control
+                type="email"
                 required
                 value={email}
                 onChange={handleEmailChange}
               />
               <Button onClick={handleSubmit} variant="success">Buscar</Button>
-            </Row>
             <Form.Control.Feedback type="invalid">
-              Campo obrigatório
+              Digite um e-mail válido
             </Form.Control.Feedback>
+            </Row>
           </Form.Group>
         </Row>
       </Form>

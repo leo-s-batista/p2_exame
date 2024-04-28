@@ -2,7 +2,7 @@ import { Button, Table } from 'react-bootstrap';
 import { api } from '../../axios.js'
 
 
-export function ListCancelamento({ newsletters, setEmail, setValidated, setNewsletters }) {
+export function ListCancelamento({ newsletters, setEmail, setSent, setValidated, setNewsletters }) {
 
   const handleDelete = (id) => {
     api.delete(`/newsletter/${id}`).then(() => {
@@ -11,8 +11,9 @@ export function ListCancelamento({ newsletters, setEmail, setValidated, setNewsl
       setNewsletters(result)
 
       if (result.length === 0) {
-      setEmail('');
-      setValidated(false);
+        setEmail('');
+        setValidated(false);
+        setSent(false)
       }
 
     }).catch((error) => {
